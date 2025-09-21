@@ -15,13 +15,18 @@ TestMaster API is a fully featured web API built with ASP.NET Core, designed to 
 
 ## 🛠️ Technologies Used
 
-- ASP.NET Core 9
+- ASP.NET Core
 - Entity Framework Core
 - SQL Server
 - JWT Authentication
 - FluentValidation
+- API Versioning
 - Swagger / OpenAPI
 - Scalar (for advanced documentation)
+- Global Exception Handling
+- RateLimiting
+- In-Memory Caching
+- Response Compression (Gzip + Brotli)
 
 ## 📦 Getting Started
 
