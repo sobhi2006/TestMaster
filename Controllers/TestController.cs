@@ -244,6 +244,7 @@ public class TestsController(ITestService testService) : ControllerBase
     public async Task<IActionResult> GetTestWithSolutionsAsync(Guid TestId)
     {
         var TestResponse = await testService.GetTestAsync(TestId);
+        await this.AssignedTestAsync(TestId, _currentUserId);
         var FileBytes = await testService.GetTestWithSolutionsAsync(TestResponse);
         return File(FileBytes, "text/csv", $"{TestResponse.Title}.csv");
     }
