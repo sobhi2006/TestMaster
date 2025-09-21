@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TestMaster")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+78d965b69b63b1325a69b4815c6f3d64912e101f")]
 [assembly: System.Reflection.AssemblyProductAttribute("TestMaster")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TestMaster")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
