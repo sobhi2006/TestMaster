@@ -1,0 +1,305 @@
+@baseUrl= https://localhost:7035
+
+###
+GET {{baseUrl}}/openapi/v1.json
+
+###
+GET {{baseUrl}}/debug/api-descriptions
+
+###
+GET {{baseUrl}}/openapi/v2.json
+
+####################################################################
+//                           Auth
+POST {{baseUrl}}/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "FName":"kkk",
+    "LName": "alexander",
+    "Age": 25,
+    "Email" :"k@gmail.com",
+    "Password":"Afjdskdjse8e#sdfj"
+}
+
+###
+POST {{baseUrl}}/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "Email":"k@gmail.com",
+    "Password":"Afjdskdjse8e#sdfj"
+}
+
+###
+POST {{baseUrl}}/api/v1/auth/refresh
+Content-Type: application/json
+
+{
+    "RefreshToken":"c9yTlZnOkP4NS2VvoY49RsDvqdIGZHa6/rF0bwVjTSqgOMxEbQkmyxDyXustZTQ1g39CP34neDgIohjQe7MaDA==",
+    "AccessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhODM1N2VkZC05YmJiLTQxMjgtYWFlZS0zMTcxYmI0N2JhZDAiLCJlbWFpbCI6ImpAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImpvaG4iLCJmYW1pbHlfbmFtZSI6ImFsZXhhbmRlciIsInJvbGUiOiJTdHVkZW50IiwibmJmIjoxNzU4Mjk1Njc1LCJleHAiOjE3NTgyOTc0NzUsImlhdCI6MTc1ODI5NTY3NSwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.8bpLBHdKRSieiLM6NFtu6ntw-gykuELG2n1UxqmRm7Y"
+}
+
+###
+POST {{baseUrl}}/api/v1/auth/logout
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzEzNTg1LCJleHAiOjE3NTgzMTUzODUsImlhdCI6MTc1ODMxMzU4NSwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.l-lBJDDgmNE-ru0iKEkm0Qx_9e7WVpupGdPTYTRgi68
+
+###
+GET {{baseUrl}}/api/v1/auth/me
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiOTVkNDBmYS1hNzliLTQzYTMtOWUzOS0wMmJjNWJlOGI2NjQiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4NDQxMDMzLCJleHAiOjE3NTg0NDI4MzMsImlhdCI6MTc1ODQ0MTAzMywiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.5eFdKy1cti_vKijY8pMK0-Cy-xKXs9Ld-gOeAsdJekg
+
+
+###########################################################################
+//                                Users
+
+POST {{baseUrl}}/api/v1/users
+Content-Type: application/json
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhODM1N2VkZC05YmJiLTQxMjgtYWFlZS0zMTcxYmI0N2JhZDAiLCJlbWFpbCI6ImpAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImpvaG4iLCJmYW1pbHlfbmFtZSI6ImFsZXhhbmRlciIsIkFjdGl2YXRlIjoidHJ1ZSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTc1ODMxMDQ5NywiZXhwIjoxNzU4MzEyMjk3LCJpYXQiOjE3NTgzMTA0OTcsImlzcyI6IkxvY2FsIiwiYXVkIjoiTG9jYWwifQ.h_G3SaHk-RGs7y7M_o5HGVXgga8nkkh8ioYSap2bFM0
+
+{
+    "FName":"sobhi",
+    "LName": "hazoury",
+    "Age": 20,
+    "Email" :"sobh@gmail.com",
+    "Password":"Abcd1@Abcd",
+    "Role" : "Admin",
+    "IsActive": true
+}
+###
+PUT {{baseUrl}}/api/v1/users/4b0bf9ff-080f-4d2d-aecf-3fdb39479aee
+Content-Type: application/json
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhODM1N2VkZC05YmJiLTQxMjgtYWFlZS0zMTcxYmI0N2JhZDAiLCJlbWFpbCI6ImpAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImpvaG4iLCJmYW1pbHlfbmFtZSI6ImFsZXhhbmRlciIsIkFjdGl2YXRlIjoidHJ1ZSIsInJvbGUiOiJBZG1pbiIsIm5iZiI6MTc1ODMxMDQ5NywiZXhwIjoxNzU4MzEyMjk3LCJpYXQiOjE3NTgzMTA0OTcsImlzcyI6IkxvY2FsIiwiYXVkIjoiTG9jYWwifQ.h_G3SaHk-RGs7y7M_o5HGVXgga8nkkh8ioYSap2bFM0
+
+{
+    "FName":"mmm",
+    "LName": "haz",
+    "Age": 22,
+    "Email" :"mmmm@gmail.com",
+    "Password":"fAjdskdjse8e#sdfj",
+    "Role" : "Instructor",
+    "IsActive": true
+}
+
+###
+DELETE {{baseUrl}}/api/v1/users/721E089F-A9AE-4163-9CD5-7605978FD427
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzEzNTg1LCJleHAiOjE3NTgzMTUzODUsImlhdCI6MTc1ODMxMzU4NSwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.l-lBJDDgmNE-ru0iKEkm0Qx_9e7WVpupGdPTYTRgi68
+
+
+
+###
+GET {{baseUrl}}/api/v1/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzEzNTg1LCJleHAiOjE3NTgzMTUzODUsImlhdCI6MTc1ODMxMzU4NSwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.l-lBJDDgmNE-ru0iKEkm0Qx_9e7WVpupGdPTYTRgi68
+
+###
+GET {{baseUrl}}/api/v1/users/2CBB15FE-B854-4BEC-8FCB-3830419E8494
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzEzNTg1LCJleHAiOjE3NTgzMTUzODUsImlhdCI6MTc1ODMxMzU4NSwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.l-lBJDDgmNE-ru0iKEkm0Qx_9e7WVpupGdPTYTRgi68
+
+###########################################################################
+//                                Questions
+
+POST {{baseUrl}}/api/v1/questions
+Content-Type: application/json
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzYxMTQ1LCJleHAiOjE3NTgzNjI5NDUsImlhdCI6MTc1ODM2MTE0NSwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.t2mUtPdMXmXTRtZgGG1BwC1qKz5Gpybabi4Gl_OrqvM
+
+{
+    "QuestionText": "What is capital of syria ?",
+    "Topic" : "Math",
+    "Type" : "FillInTheBlank",
+    "Difficulty" : "Easy",
+    "MarkPer100" : 20,
+    "Answers" : [
+        {
+            "AnswerText" : "Damascus",
+            "IsCorrect" : true
+        }
+    ]
+}
+
+###
+GET {{baseUrl}}/api/v1/questions/d30cf6c5-6943-4f40-9216-ccfb32724e24
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzU2ODEyLCJleHAiOjE3NTgzNTg2MTIsImlhdCI6MTc1ODM1NjgxMiwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.oIEIHmbAhGmVlv_hZcV4WP_Fn4444Qsgr14xnuVMz_Y
+
+###
+GET {{baseUrl}}/api/v1/questions/by-topic?Topic=Math
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzU2ODEyLCJleHAiOjE3NTgzNTg2MTIsImlhdCI6MTc1ODM1NjgxMiwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.oIEIHmbAhGmVlv_hZcV4WP_Fn4444Qsgr14xnuVMz_Y
+
+###
+GET {{baseUrl}}/api/v1/questions/by-type?Type=MultipleChoice
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzU2ODEyLCJleHAiOjE3NTgzNTg2MTIsImlhdCI6MTc1ODM1NjgxMiwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.oIEIHmbAhGmVlv_hZcV4WP_Fn4444Qsgr14xnuVMz_Y
+
+###
+GET {{baseUrl}}/api/v1/questions
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzU2ODEyLCJleHAiOjE3NTgzNTg2MTIsImlhdCI6MTc1ODM1NjgxMiwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.oIEIHmbAhGmVlv_hZcV4WP_Fn4444Qsgr14xnuVMz_Y
+
+###
+DELETE {{baseUrl}}/api/v1/questions/D30CF6C5-6943-4F40-9216-CCFB32724E24
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzYxMTQ1LCJleHAiOjE3NTgzNjI5NDUsImlhdCI6MTc1ODM2MTE0NSwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.t2mUtPdMXmXTRtZgGG1BwC1qKz5Gpybabi4Gl_OrqvM
+
+###
+PUT {{baseUrl}}/api/v1/questions/B37150D1-9B58-46D6-9269-1FA2A8E4C7E9
+Content-Type: application/json
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzU5MjczLCJleHAiOjE3NTgzNjEwNzMsImlhdCI6MTc1ODM1OTI3MywiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.fVBceo8JoIqAaJKG7nRNLaL3v-1H40n5ibGahuDtQco
+
+{
+    "QuestionText": "What is capital of syria????????",
+    "Topic" : "Math",
+    "Type" : "MultipleChoice",
+    "Difficulty" : "Easy",
+    "MarkPer100" : 20,
+    "Answers" : [
+        {
+            "AnswerText" : "Aleppooooooooo",
+            "IsCorrect" : false
+        },
+        {
+            "AnswerText" : "Homsssssssss",
+            "IsCorrect" : false
+        },
+        {
+            "AnswerText" : "Hamahhhhhhhhhh",
+            "IsCorrect" : false
+        },
+        {
+            "AnswerText" : "Damascussssssssssssssssss",
+            "IsCorrect" : true
+        }
+    ]
+}
+
+###########################################################################
+//                                QuestionBanks
+
+POST {{baseUrl}}/api/v1/questionbanks
+Content-Type: application/json
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzY1ODY5LCJleHAiOjE3NTgzNjc2NjksImlhdCI6MTc1ODM2NTg2OSwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.wBErVf8XfK749lFIl76IwFEbJS1r8I79OJgM7c6JUg0
+
+{
+    "Title": "Capitals",
+    "Description" : "Capitals bank for student",
+    "Difficulty" : "Easy",
+    "QuestionIDs" : [
+        "B4D85C9E-ABD5-4998-96AA-10BBBD9B9023",
+        "B37150D1-9B58-46D6-9269-1FA2A8E4C7E9",
+        "702196D6-8DBA-4B81-94B7-845F4B548BD5"
+    ]
+}
+
+###
+GET {{baseUrl}}/api/v1/questionbanks/85c3e7c6-566b-47d1-982c-d37bb93ae2c5
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzY1ODY5LCJleHAiOjE3NTgzNjc2NjksImlhdCI6MTc1ODM2NTg2OSwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.wBErVf8XfK749lFIl76IwFEbJS1r8I79OJgM7c6JUg0
+
+###
+GET {{baseUrl}}/api/v1/questionbanks
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzY1ODY5LCJleHAiOjE3NTgzNjc2NjksImlhdCI6MTc1ODM2NTg2OSwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.wBErVf8XfK749lFIl76IwFEbJS1r8I79OJgM7c6JUg0
+
+###
+DELETE {{baseUrl}}/api/v1/questionbanks/BD712C71-A5E9-4097-868E-518BBE1088EF
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzY1ODY5LCJleHAiOjE3NTgzNjc2NjksImlhdCI6MTc1ODM2NTg2OSwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.wBErVf8XfK749lFIl76IwFEbJS1r8I79OJgM7c6JUg0
+
+###
+PUT {{baseUrl}}/api/v1/questionbanks/85c3e7c6-566b-47d1-982c-d37bb93ae2c5
+Content-Type: application/json
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzY1ODY5LCJleHAiOjE3NTgzNjc2NjksImlhdCI6MTc1ODM2NTg2OSwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.wBErVf8XfK749lFIl76IwFEbJS1r8I79OJgM7c6JUg0
+
+{
+    "Title": "Capital",
+    "Description" : "Capital bank for student",
+    "Difficulty" : "Easy",
+    "QuestionIDs" : [
+        "B4D85C9E-ABD5-4998-96AA-10BBBD9B9023",
+        "B37150D1-9B58-46D6-9269-1FA2A8E4C7E9"
+    ]
+}
+
+############################################################################
+//                                Tests
+@TestId =c92d8739-7f6d-414f-b60c-dd384aa7d1cd
+
+###
+POST {{baseUrl}}/api/v1/tests
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzY5OTMyLCJleHAiOjE3NTgzNzE3MzIsImlhdCI6MTc1ODM2OTkzMiwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.msjMz-vzdgVIYYAJY-x68ikHOF1cmCFnVY254QTRH5Y
+Content-Type: application/json
+
+{
+    "Title":"test1",
+    "Description":"test of capital",
+    "Duration": "00:45:00",
+    "QuestionBankId": "015DAEF2-7B4F-4938-890D-5B5DEFD2C898"
+}
+
+###
+GET {{baseUrl}}/api/v1/tests/f2be7a76-2b37-48c2-84ba-4b0d813c0b53
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzY3NjU3LCJleHAiOjE3NTgzNjk0NTcsImlhdCI6MTc1ODM2NzY1NywiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.8gxziY3vFIX2Khj4-L9GeXolYacXQiDJsBSRxY5PV_8
+
+
+###
+GET {{baseUrl}}/api/v1/tests?page=1&sizePage=10
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzY3NjU3LCJleHAiOjE3NTgzNjk0NTcsImlhdCI6MTc1ODM2NzY1NywiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.8gxziY3vFIX2Khj4-L9GeXolYacXQiDJsBSRxY5PV_8
+
+###
+PUT {{baseUrl}}/api/v1/tests/f2be7a76-2b37-48c2-84ba-4b0d813c0b53
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzY3NjU3LCJleHAiOjE3NTgzNjk0NTcsImlhdCI6MTc1ODM2NzY1NywiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.8gxziY3vFIX2Khj4-L9GeXolYacXQiDJsBSRxY5PV_8
+Content-Type: application/json
+
+{
+    "Title":"test2",
+    "Description":"test of capitalss",
+    "Duration": "1:00:1",
+    "QuestionBankId": "015DAEF2-7B4F-4938-890D-5B5DEFD2C898"
+}
+
+###
+DELETE {{baseUrl}}/api/v1/tests/f2be7a76-2b37-48c2-84ba-4b0d813c0b53
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzY3NjU3LCJleHAiOjE3NTgzNjk0NTcsImlhdCI6MTc1ODM2NzY1NywiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.8gxziY3vFIX2Khj4-L9GeXolYacXQiDJsBSRxY5PV_8
+
+
+
+
+
+###
+PUT {{baseUrl}}/api/v1/tests/{{TestId}}/assigned/users/2CBB15FE-B854-4BEC-8FCB-3830419E8494
+Content-Type: application/json
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzY5OTMyLCJleHAiOjE3NTgzNzE3MzIsImlhdCI6MTc1ODM2OTkzMiwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.msjMz-vzdgVIYYAJY-x68ikHOF1cmCFnVY254QTRH5Y
+
+###
+PUT {{baseUrl}}/api/v1/tests/{{TestId}}/unassigned/users/2CBB15FE-B854-4BEC-8FCB-3830419E8494
+Content-Type: application/json
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzY5OTMyLCJleHAiOjE3NTgzNzE3MzIsImlhdCI6MTc1ODM2OTkzMiwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.msjMz-vzdgVIYYAJY-x68ikHOF1cmCFnVY254QTRH5Y
+
+
+
+
+
+###
+POST {{baseUrl}}/api/v1/tests/evaluations
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzY5OTMyLCJleHAiOjE3NTgzNzE3MzIsImlhdCI6MTc1ODM2OTkzMiwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.msjMz-vzdgVIYYAJY-x68ikHOF1cmCFnVY254QTRH5Y
+Content-Type: application/json
+
+{
+    "EvaluationUserId": "2CBB15FE-B854-4BEC-8FCB-3830419E8494",
+    "TestId":"C92D8739-7F6D-414F-B60C-DD384AA7D1CD",
+    "TotalScore":100,
+    "Score":70,
+    "Feedback" : "it is good"
+}
+
+###
+DELETE {{baseUrl}}/api/v1/tests/C92D8739-7F6D-414F-B60C-DD384AA7D1CD/evaluations/users/2CBB15FE-B854-4BEC-8FCB-3830419E8494
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzY5OTMyLCJleHAiOjE3NTgzNzE3MzIsImlhdCI6MTc1ODM2OTkzMiwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.msjMz-vzdgVIYYAJY-x68ikHOF1cmCFnVY254QTRH5Y
+
+###
+GET {{baseUrl}}/api/v1/tests/evaluations/users/2CBB15FE-B854-4BEC-8FCB-3830419E8494
+Content-Type: application/json
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzY5OTMyLCJleHAiOjE3NTgzNzE3MzIsImlhdCI6MTc1ODM2OTkzMiwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.msjMz-vzdgVIYYAJY-x68ikHOF1cmCFnVY254QTRH5Y
+
+
+
+
+
+###
+GET {{baseUrl}}/api/v1/tests/C92D8739-7F6D-414F-B60C-DD384AA7D1CD/quiz
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzczODk4LCJleHAiOjE3NTgzNzU2OTgsImlhdCI6MTc1ODM3Mzg5OCwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.wpw1kml6GkNUgfqp7X04tCemjrzw-e29s2OQyWd72aY
+
+###
+GET {{baseUrl}}/api/v2/tests/C92D8739-7F6D-414F-B60C-DD384AA7D1CD
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwMzlhOTRmOC01ZjA0LTQ4MDktYTY4OC03OTg5N2EwYTM2MDAiLCJlbWFpbCI6ImtAZ21haWwuY29tIiwiZ2l2ZW5fbmFtZSI6ImtrayIsImZhbWlseV9uYW1lIjoiYWxleGFuZGVyIiwiQWN0aXZhdGUiOiJ0cnVlIiwicm9sZSI6IkFkbWluIiwibmJmIjoxNzU4MzczODk4LCJleHAiOjE3NTgzNzU2OTgsImlhdCI6MTc1ODM3Mzg5OCwiaXNzIjoiTG9jYWwiLCJhdWQiOiJMb2NhbCJ9.wpw1kml6GkNUgfqp7X04tCemjrzw-e29s2OQyWd72aY
