@@ -28,7 +28,7 @@ TestMaster API is a fully featured web API built with ASP.NET Core, designed to 
 Clone the repository and run the project:
 
 `bash
-git clone https://github.com/sobhi2006/TestMasterAPI.git
-cd TestMasterAPI
+git clone https://github.com/sobhi2006/TestMaster
+cd TestMaster
 dotnet restore
 dotnet run
